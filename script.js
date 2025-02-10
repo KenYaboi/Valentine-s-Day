@@ -1,4 +1,17 @@
 // Handle the first question's response
+// Array of responses for "Luh yoko nga"
+const luhResponses = [
+    "Sure ka na?",
+    "Final answer?",
+    "Di mo na mababawi 'to!",
+    "Last chance!",
+    "Wala nang balikan ha?",
+    "Eh di wow. 😭"
+];
+
+let luhClickCount = 0; // Track how many times it's clicked
+
+// Handle the first question's response
 function handleIntroResponse(option) {
     if (option === 'okay') {
         // Hide the first question
@@ -7,8 +20,16 @@ function handleIntroResponse(option) {
         // Show the second question
         document.getElementById('text-container').style.display = 'block';
     } else if (option === 'luh') {
-        // Change the text of the "Luh yoko nga" button
-        document.getElementById('luh-button').innerText = 'Sure ka na?';
+        let luhButton = document.getElementById('luh-button');
+
+        // Change button text based on click count
+        if (luhClickCount < luhResponses.length) {
+            luhButton.innerText = luhResponses[luhClickCount];
+        } else {
+            luhButton.innerText = "Okay fine. 😤"; // Default last response
+        }
+
+        luhClickCount++; // Increment count
 
         // Increase font size of "Okay" button
         let okayButton = document.getElementById('okay-button');
