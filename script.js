@@ -38,7 +38,17 @@ function handleIntroResponse(option) {
     }
 }
 
-// Handle the Valentine's question
+// Array of responses for "No"
+const noResponses = [
+    "Sige na please? 🥺",
+    "Promise samahan kita for life! ❤️",
+    "Papakitaan ng super duper love! 💖",
+    "Lilipad ako parang si Darna! 🦸‍♀️",
+    "Okay fine, pero last chance na 'to! 😭"
+];
+
+let noClickCount = 0; // Track how many times "No" is clicked
+
 function selectOption(option) {
     if (option === 'yes') {
         flashRainbowColors(function() {
@@ -47,8 +57,18 @@ function selectOption(option) {
             displayCatHeart(); // Show cat-heart.gif
         });
     } else if (option === 'no') {
-        document.getElementById('no-button').innerText = 'You sure?';
+        let noButton = document.getElementById('no-button');
 
+        // Change "No" button text with each click
+        if (noClickCount < noResponses.length) {
+            noButton.innerText = noResponses[noClickCount];
+        } else {
+            noButton.innerText = "Di na kita pipilitin... 😢"; // Final response
+        }
+
+        noClickCount++; // Increment click count
+
+        // Increase "Yes" button size
         let yesButton = document.getElementById('yes-button');
         let currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
         yesButton.style.fontSize = (currentSize * 1.5) + 'px';
