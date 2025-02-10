@@ -18,7 +18,26 @@ body {
 #image-container {
     /* This container will hold the images */
 }
+#intro-container {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack elements */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+}
 
+#intro-question {
+    font-family: 'Sacramento', cursive;
+    font-size: 42px; /* Slightly smaller than main question */
+}
+
+#intro-options {
+    margin-top: 20px;
+}
+
+/* Optional: Add hover effect for buttons */
+button:hover {
+    background-color: #ff3b6c; /* Slightly darker pink */
+}
 #question {
     font-family: 'Sacramento', cursive; /* Apply Sacramento font to the question */
     font-size: 52px; /* Set font size for the question */
