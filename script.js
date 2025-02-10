@@ -1,4 +1,4 @@
-// Handle first question
+// Handle the first question's response
 function handleIntroResponse(option) {
     if (option === 'okay') {
         // Hide the first question
@@ -7,38 +7,38 @@ function handleIntroResponse(option) {
         // Show the second question
         document.getElementById('text-container').style.display = 'block';
     } else if (option === 'luh') {
-        // Change text on "Luh yoko nga" button
+        // Change the text of the "Luh yoko nga" button
         document.getElementById('luh-button').innerText = 'Sure ka na?';
 
-        // Make "Okay" button bigger
-        var okayButton = document.getElementById('okay-button');
-        var currentSize = parseFloat(window.getComputedStyle(okayButton).fontSize);
+        // Increase font size of "Okay" button
+        let okayButton = document.getElementById('okay-button');
+        let currentSize = parseFloat(window.getComputedStyle(okayButton).fontSize);
         okayButton.style.fontSize = (currentSize * 1.5) + 'px';
     }
 }
 
-// Handle Valentine question
+// Handle the Valentine's question
 function selectOption(option) {
     if (option === 'yes') {
         flashRainbowColors(function() {
-            document.getElementById('question').style.display = 'none'; // Hide the question
+            document.getElementById('question').style.display = 'none'; // Hide question
             document.getElementById('options').style.display = 'none'; // Hide buttons
             displayCatHeart(); // Show cat-heart.gif
         });
     } else if (option === 'no') {
         document.getElementById('no-button').innerText = 'You sure?';
 
-        var yesButton = document.getElementById('yes-button');
-        var currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+        let yesButton = document.getElementById('yes-button');
+        let currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
         yesButton.style.fontSize = (currentSize * 1.5) + 'px';
     }
 }
 
-// Flash rainbow colors before showing cat-heart.gif
+// Flash rainbow colors
 function flashRainbowColors(callback) {
-    var colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
-    var i = 0;
-    var interval = setInterval(() => {
+    let colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
+    let i = 0;
+    let interval = setInterval(() => {
         document.body.style.backgroundColor = colors[i];
         i = (i + 1) % colors.length;
     }, 200);
@@ -50,19 +50,19 @@ function flashRainbowColors(callback) {
     }, 2000);
 }
 
-// Display the cat.gif initially
+// Display initial cat image
 function displayCat() {
-    var imageContainer = document.getElementById('image-container');
-    var catImage = new Image();
+    let imageContainer = document.getElementById('image-container');
+    let catImage = new Image();
     catImage.src = 'cat.gif';
     catImage.alt = 'Cat';
     catImage.onload = () => imageContainer.appendChild(catImage);
 }
 
-// Display the cat-heart.gif after "Yes"
+// Display cat-heart.gif after "Yes"
 function displayCatHeart() {
     document.getElementById('image-container').innerHTML = '';
-    var catHeartImage = new Image();
+    let catHeartImage = new Image();
     catHeartImage.src = 'cat-heart.gif';
     catHeartImage.alt = 'Cat Heart';
     catHeartImage.onload = () => {
@@ -70,5 +70,5 @@ function displayCatHeart() {
     };
 }
 
-// Display the first cat image when page loads
+// Load the initial cat image
 displayCat();
