@@ -112,14 +112,7 @@ function flashRainbowColors(callback) {
     }, 2000);
 }
 
-// Display initial cat image
-function displayCat() {
-    let imageContainer = document.getElementById('image-container');
-    let catImage = new Image();
-    catImage.src = 'cat.gif';
-    catImage.alt = 'Cat';
-    catImage.onload = () => imageContainer.appendChild(catImage);
-}
+
 
 // Display cat-heart.gif after "Yes"
 function displayCatHeart() {
@@ -128,9 +121,10 @@ function displayCatHeart() {
     catHeartImage.src = 'cat-heart.gif';
     catHeartImage.alt = 'Cat Heart';
     catHeartImage.onload = () => {
+        catHeartImage.style.width = '400px'; // Adjust as needed
+        catHeartImage.style.height = '400px'; // Adjust as needed
         document.getElementById('image-container').appendChild(catHeartImage);
     };
 }
-
 // Load the initial cat image
 displayIntroGif();
