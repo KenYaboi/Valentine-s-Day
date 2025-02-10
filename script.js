@@ -121,8 +121,8 @@ function displayCatHeart() {
     catHeartImage.src = 'cat-heart.gif';
     catHeartImage.alt = 'Cat Heart';
     catHeartImage.onload = () => {
-        catHeartImage.style.width = '400px'; // Adjust as needed
-        catHeartImage.style.height = '400px'; // Adjust as needed
+        catHeartImage.style.width = '800px'; // Adjust as needed
+        catHeartImage.style.height = '800px'; // Adjust as needed
         document.getElementById('image-container').appendChild(catHeartImage);
     };
 }
