@@ -1,5 +1,24 @@
 // script.js
 
+function handleIntroResponse(option) {
+    if (option === 'okay') {
+        // Hide the intro question and show the Valentine question
+        document.getElementById('intro-question').style.display = 'none';
+        document.getElementById('intro-options').style.display = 'none';
+        document.getElementById('question').style.display = 'block';
+        document.getElementById('options').style.display = 'block';
+    } else if (option === 'luh') {
+        // Change "Luh yoko nga" button text to "Sure ka na?"
+        document.getElementById('luh-button').innerText = 'Sure ka na?';
+        
+        // Increase font size of "Okay" button
+        var okayButton = document.getElementById('okay-button');
+        var currentFontSize = window.getComputedStyle(okayButton).getPropertyValue('font-size');
+        var newSize = parseFloat(currentFontSize) * 2; // Increase font size by 2x
+        okayButton.style.fontSize = newSize + 'px';
+    }
+}
+
 // Function to handle button click events
 function selectOption(option) {
     // Check which option was clicked
