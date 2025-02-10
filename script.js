@@ -1,11 +1,13 @@
 // Function to handle the first question
 function handleIntroResponse(option) {
     if (option === 'okay') {
-        // Hide the intro question and show the Valentine question
+        // Hide the first question and its options
         document.getElementById('intro-question').style.display = 'none';
         document.getElementById('intro-options').style.display = 'none';
+
+        // Show the Valentine question and options
         document.getElementById('question').style.display = 'block';
-        document.getElementById('options').style.display = 'block';
+        document.getElementById('options').style.display = 'flex'; // Make buttons visible
     } else if (option === 'luh') {
         // Change "Luh yoko nga" button text to "Sure ka na?"
         document.getElementById('luh-button').innerText = 'Sure ka na?';
@@ -13,7 +15,7 @@ function handleIntroResponse(option) {
         // Increase font size of "Okay" button
         var okayButton = document.getElementById('okay-button');
         var currentFontSize = window.getComputedStyle(okayButton).getPropertyValue('font-size');
-        var newSize = parseFloat(currentFontSize) * 2; // Increase font size by 2x
+        var newSize = parseFloat(currentFontSize) * 1.5; // Increase font size by 1.5x
         okayButton.style.fontSize = newSize + 'px';
     }
 }
@@ -21,44 +23,42 @@ function handleIntroResponse(option) {
 // Function to handle the Valentine question
 function selectOption(option) {
     if (option === 'yes') {
-        // Flash rainbow colors
         flashRainbowColors(function() {
             document.getElementById('question').style.display = 'none'; // Hide the question
-            displayCatHeart(); // Display the cat-heart.gif
+            document.getElementById('options').style.display = 'none'; // Hide buttons
+            displayCatHeart(); // Show the cat-heart.gif
         });
     } else if (option === 'no') {
-        // Change text on the "No" button to "You sure?"
         document.getElementById('no-button').innerText = 'You sure?'; 
-        // Increase font size of "Yes" button
         var yesButton = document.getElementById('yes-button');
         var currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
-        var newSize = parseFloat(currentFontSize) * 2; // Increase font size by 2x
+        var newSize = parseFloat(currentFontSize) * 1.5; // Increase font size by 1.5x
         yesButton.style.fontSize = newSize + 'px';
     }
 }
 
-// Function to flash rainbow colors and then execute a callback function
+// Function to flash rainbow colors
 function flashRainbowColors(callback) {
     var colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#9400d3'];
     var i = 0;
     var interval = setInterval(function() {
         document.body.style.backgroundColor = colors[i];
         i = (i + 1) % colors.length;
-    }, 200); // Change color every 200 milliseconds
+    }, 200); 
     setTimeout(function() {
         clearInterval(interval);
-        document.body.style.backgroundColor = ''; // Reset background color
+        document.body.style.backgroundColor = ''; 
         if (callback) {
             callback();
         }
-    }, 2000); // Flash colors for 2 seconds
+    }, 2000);
 }
 
 // Function to display the cat.gif initially
 function displayCat() {
     var imageContainer = document.getElementById('image-container');
     var catImage = new Image();
-    catImage.src = 'cat.gif'; // Assuming the cat image is named "cat.gif"
+    catImage.src = 'cat.gif';
     catImage.alt = 'Cat';
     catImage.onload = function() {
         imageContainer.appendChild(catImage);
@@ -70,11 +70,10 @@ function displayCatHeart() {
     document.getElementById('image-container').innerHTML = '';
     var imageContainer = document.getElementById('image-container');
     var catHeartImage = new Image();
-    catHeartImage.src = 'cat-heart.gif'; // Assuming the cat-heart image is named "cat-heart.gif"
+    catHeartImage.src = 'cat-heart.gif';
     catHeartImage.alt = 'Cat Heart';
     catHeartImage.onload = function() {
         imageContainer.appendChild(catHeartImage);
-        document.getElementById('options').style.display = 'none';
     };
 }
 
