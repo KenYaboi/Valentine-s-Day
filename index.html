@@ -10,11 +10,20 @@
 <body>
     <div id="container">
         <div id="image-container"></div> <!-- Container for displaying images -->
+        
         <div id="text-container">
-            <div id="question">Will you be my valentine?</div> <!-- Question -->
-            <div id="options">
-                <button id="yes-button" onclick="selectOption('yes')">Yes</button> <!-- Yes button -->
-                <button id="no-button" onclick="selectOption('no')">No</button> <!-- No button -->
+            <!-- First Question -->
+            <div id="intro-question">This is a very important question and I need your answer!</div>
+            <div id="intro-options">
+                <button id="okay-button" onclick="handleIntroResponse('okay')">Okay</button>
+                <button id="luh-button" onclick="handleIntroResponse('luh')">Luh yoko nga</button>
+            </div>
+
+            <!-- Second Question (Initially Hidden) -->
+            <div id="question" style="display: none;">Will you be my Valentine?</div>
+            <div id="options" style="display: none;">
+                <button id="yes-button" onclick="selectOption('yes')">Yes</button>
+                <button id="no-button" onclick="selectOption('no')">No</button>
             </div>
         </div>
     </div>
