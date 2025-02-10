@@ -1,3 +1,11 @@
+function displayIntroGif() {
+    var imageContainer = document.getElementById('image-container');
+    var introGif = new Image();
+    introGif.src = 'thinking-cat.gif'; // Change to your first GIF file
+    introGif.alt = 'Thinking Cat';
+    imageContainer.appendChild(introGif);
+}
+
 // Handle the first question's response
 // Array of responses for "Luh yoko nga"
 const luhResponses = [
@@ -18,7 +26,12 @@ function handleIntroResponse(option) {
         document.getElementById('intro-container').style.display = 'none';
 
         // Show the second question
+        
         document.getElementById('text-container').style.display = 'block';
+
+        var imageContainer = document.getElementById('image-container');
+        imageContainer.innerHTML = ''; // Remove the first GIF
+        displayValentineGif(); // Show the second GIF
     } else if (option === 'luh') {
         let luhButton = document.getElementById('luh-button');
 
@@ -48,6 +61,14 @@ const noResponses = [
 ];
 
 let noClickCount = 0; // Track how many times "No" is clicked
+
+function displayValentineGif() {
+    var imageContainer = document.getElementById('image-container');
+    var valentineGif = new Image();
+    valentineGif.src = 'cat.gif'; // Change this to your second GIF file
+    valentineGif.alt = 'Cute Cat';
+    imageContainer.appendChild(valentineGif);
+}
 
 function selectOption(option) {
     if (option === 'yes') {
@@ -112,4 +133,4 @@ function displayCatHeart() {
 }
 
 // Load the initial cat image
-displayCat();
+displayIntroGif();
